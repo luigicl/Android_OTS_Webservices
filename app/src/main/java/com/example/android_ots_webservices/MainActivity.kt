@@ -2,6 +2,7 @@ package com.example.android_ots_webservices
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +21,7 @@ data class ListPokemonApiResult(
     val count: Int,
     val next: String?, // a ? significa que essa propriedade pode aceitar/trazer valores nulos
     val previous: String?,
-    val result: Array<ListPokemonResult>
+    val results: Array<ListPokemonResult>
 )
 
 interface PokeApiService {
@@ -54,6 +55,16 @@ class MainActivity : AppCompatActivity() {
             ) {
                 // Caso a requisição HTTP tenha sido bem sucedida
                 Log.d("POKEMON_API", response.body().toString())
+
+                val tvName = findViewById<TextView>(R.id.tvName)
+
+                response.body()?.let {
+                    tvName.text = ""
+
+                    it.results.forEach { Pokemon ->
+                        tvName.append(Pokemon.name + "\n") // \n quebra de linha
+                    }
+                }
             }
 
             override fun onFailure(call: Call<ListPokemonApiResult>, t: Throwable) {
