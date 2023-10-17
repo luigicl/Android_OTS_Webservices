@@ -1,40 +1,22 @@
-package com.example.android_ots_webservices
+package com.example.android_ots_webservices.view
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.android_ots_webservices.R
+import com.example.android_ots_webservices.api.ListPokemonApiResult
+import com.example.android_ots_webservices.api.PokeApiService
+import com.example.android_ots_webservices.list.PokemonItem
+import com.example.android_ots_webservices.list.PokemonListAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 
-// início da preparação para o código
-data class ListPokemonResult(
-    val name: String,
-    val url: String
-)
-
-data class ListPokemonApiResult(
-    val count: Int,
-    val next: String?, // a ? significa que essa propriedade pode aceitar/trazer valores nulos
-    val previous: String?,
-    val results: Array<ListPokemonResult>
-)
-
-interface PokeApiService {
-    // https://pokeapi.co/api/v2/pokemon?limit=20&offset=0
-    // Base: https://pokeapi.co/api/v2/
-    // Endpoint (Rota): pokemon?limit=20&offset=0
-    @GET("pokemon?limit=20&offset=0")
-    fun listPokemon(): Call<ListPokemonApiResult>
-}
 // fim da preparação para o código
 
 class MainActivity : AppCompatActivity() {

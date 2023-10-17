@@ -1,4 +1,4 @@
-package com.example.android_ots_webservices
+package com.example.android_ots_webservices.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.android_ots_webservices.R
 
-// Classe para ir guardando os itens da lista
-data class PokemonItem(
-    val name: String,
-    val imageUrl: String
-)
 class PokemonListAdapter(private val dataSet: Array<PokemonItem>) :
     RecyclerView.Adapter<PokemonListAdapter.ViewHolder>() {
 
