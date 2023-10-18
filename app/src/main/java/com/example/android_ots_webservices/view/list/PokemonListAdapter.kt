@@ -1,4 +1,4 @@
-package com.example.android_ots_webservices.list
+package com.example.android_ots_webservices.view.list
 
 import android.view.LayoutInflater
 import android.view.View

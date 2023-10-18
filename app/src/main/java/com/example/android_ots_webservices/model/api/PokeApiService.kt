@@ -1,6 +1,5 @@
-package com.example.android_ots_webservices.api
+package com.example.android_ots_webservices.model.api
 
-// import com.example.android_ots_webservices.api.ListPokemonApiResult
 import retrofit2.Call
 import retrofit2.http.GET
 

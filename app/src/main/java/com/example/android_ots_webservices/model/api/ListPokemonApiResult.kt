@@ -1,4 +1,4 @@
-package com.example.android_ots_webservices.api
+package com.example.android_ots_webservices.model.api
 
 data class ListPokemonApiResult(
     val count: Int,
